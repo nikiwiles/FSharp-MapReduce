@@ -18,9 +18,9 @@ There are three types of actor -
     and send a message to the *Orchestrator* containing a handle to the *Loader*, which is stored locally.
   
  3. The *Orchestrator* is then instructed to spawn some *Workers* and initialise three [routers](http://getakka.net/docs/working-with-actors/Routers) -
-   * **[Broadcast](http://getakka.net/docs/working-with-actors/Routers#broadcast) Router**   : Broadcasts messages to all of our *Workers*.
-   * **[Shuffle](http://getakka.net/docs/working-with-actors/Routers#consistenthashing) Router**    : Partitions data between our *Workers* by performing a mathematical hash on each item of data.
-   * **[Round Robin](http://getakka.net/docs/working-with-actors/Routers#roundrobin) Router** : Sends messages to our *Workers* like dealing a hand of cards, sequentially, in a circular manner.
+   * **[Broadcast Router](http://getakka.net/docs/working-with-actors/Routers#broadcast) **   : Broadcasts messages to all of our *Workers*.
+   * **[Shuffle Router](http://getakka.net/docs/working-with-actors/Routers#consistenthashing) **    : Partitions data between our *Workers* by performing a mathematical hash on each item of data.
+   * **[Round Robin Router](http://getakka.net/docs/working-with-actors/Routers#roundrobin) ** : Sends messages to our *Workers* like dealing a hand of cards, sequentially, in a circular manner.
 
  4. The *Orchestrator* is Initialised with three user defined functions -
    * **Map function**            : applies a transformation to an object to produce a collection of key / value pairs.
