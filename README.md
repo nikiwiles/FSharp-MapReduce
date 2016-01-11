@@ -7,20 +7,20 @@ This is a variation on the classic [Map Reduce](https://en.wikipedia.org/wiki/Ma
 There are three types of actor - 
  
  1. One or more *Workers* that perform the actual data processing.
- 2. An *Orchestrator* to assign data to workers and collate the results of our Map Reduce job.
+ 2. An *Orchestrator* to assign data to *Workers* and collate the results of our Map Reduce job.
  3. A *Loader* to fetch from a stream of data upon request, and feed it to the *Orchestrator* for processing.
 
 ##### Algorithm -
 
  1. Spawn a *Loader* and an *Orchestrator*. 
 
- 2. Initialise the Loader with a user defined function that will be used to fetch data from some data source, 
+ 2. Initialise the *Loader* with a user defined function that will be used to fetch data from some data source, 
     and send a message to the *Orchestrator* containing a handle to the *Loader*, which is stored locally.
   
- 3. The *rchestrator* is then instructed to spawn some *Workers* and initialise three [routers](http://getakka.net/docs/working-with-actors/Routers) -
-   * [Broadcast](http://getakka.net/docs/working-with-actors/Routers#broadcast) Router   : Broadcasts messages to all of our Workers.
-   * [Shuffle](http://getakka.net/docs/working-with-actors/Routers#consistenthashing) Router    : Partitions data between our Workers by performing a mathematical hash on each item of data.
-   * [Round Robin](http://getakka.net/docs/working-with-actors/Routers#roundrobin) Router : Sends messages to our workers like dealing a hand of cards, sequentially, in a circular manner.
+ 3. The *Orchestrator* is then instructed to spawn some *Workers* and initialise three [routers](http://getakka.net/docs/working-with-actors/Routers) -
+   * [Broadcast](http://getakka.net/docs/working-with-actors/Routers#broadcast) Router   : Broadcasts messages to all of our *Workers*.
+   * [Shuffle](http://getakka.net/docs/working-with-actors/Routers#consistenthashing) Router    : Partitions data between our *Workers* by performing a mathematical hash on each item of data.
+   * [Round Robin](http://getakka.net/docs/working-with-actors/Routers#roundrobin) Router : Sends messages to our *Workers* like dealing a hand of cards, sequentially, in a circular manner.
 
  4. The *Orchestrator* is Initialised with three user defined functions -
    * Map function            : applies a transformation to an object to produce a collection of key / value pairs.
