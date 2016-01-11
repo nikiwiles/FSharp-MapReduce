@@ -7,7 +7,7 @@ This is a variation on the classic [Map Reduce](https://en.wikipedia.org/wiki/Ma
 There are three types of actor - 
  
  1. One or more *Workers* that perform the actual data processing.
- 2. An *Orchestrator*| to assign data to workers and collate the results of our Map Reduce job.
+ 2. An *Orchestrator* to assign data to workers and collate the results of our Map Reduce job.
  3. A *Loader* to fetch from a stream of data upon request, and feed it to the *Orchestrator* for processing.
 
 ##### Algorithm -
