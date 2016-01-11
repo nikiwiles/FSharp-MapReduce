@@ -18,14 +18,14 @@ There are three types of actor -
     and send a message to the *Orchestrator* containing a handle to the *Loader*, which is stored locally.
   
  3. The *Orchestrator* is then instructed to spawn some *Workers* and initialise three [routers](http://getakka.net/docs/working-with-actors/Routers) -
-   * [Broadcast](http://getakka.net/docs/working-with-actors/Routers#broadcast) Router   : Broadcasts messages to all of our *Workers*.
-   * [Shuffle](http://getakka.net/docs/working-with-actors/Routers#consistenthashing) Router    : Partitions data between our *Workers* by performing a mathematical hash on each item of data.
-   * [Round Robin](http://getakka.net/docs/working-with-actors/Routers#roundrobin) Router : Sends messages to our *Workers* like dealing a hand of cards, sequentially, in a circular manner.
+   * **[Broadcast](http://getakka.net/docs/working-with-actors/Routers#broadcast) Router**   : Broadcasts messages to all of our *Workers*.
+   * **[Shuffle](http://getakka.net/docs/working-with-actors/Routers#consistenthashing) Router**    : Partitions data between our *Workers* by performing a mathematical hash on each item of data.
+   * **[Round Robin](http://getakka.net/docs/working-with-actors/Routers#roundrobin) Router** : Sends messages to our *Workers* like dealing a hand of cards, sequentially, in a circular manner.
 
  4. The *Orchestrator* is Initialised with three user defined functions -
-   * Map function            : applies a transformation to an object to produce a collection of key / value pairs.
-   * Reduce function         : applies a summary function to a key / value pair.
-   * Handle Results function : the function that we'll apply to the final, blended, results of our Map Reduce job.
+   * **Map function**            : applies a transformation to an object to produce a collection of key / value pairs.
+   * **Reduce function**         : applies a summary function to a key / value pair.
+   * **Handle Results function** : the function that we'll apply to the final, blended, results of our Map Reduce job.
 
  5. The *Orchestrator* stores the "Handle Results" function locally and broadcasts the Map and Reduce functions to its *Workers* 
     via the Broadcast Router, which are stored and acknowledged by each of them. 
